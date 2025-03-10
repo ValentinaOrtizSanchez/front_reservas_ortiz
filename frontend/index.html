@@ -167,7 +167,7 @@
             compromiso_pago: document.getElementById("gridCheck").checked
         };
 
-        const response = await fetch("https://back-app-reservas.onrender.com/guardar-reserva", {
+        const response = await fetch("https://back-app-reservas-5.onrender.com/guardar-reserva", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
@@ -202,7 +202,7 @@
 <script>
 
     async function cargarReservas() {
-        const response = await fetch("https://back-app-reservas.onrender.com/reservas");
+        const response = await fetch("https://back-app-reservas-5.onrender.com/reservas");
         const reservas = await response.json();
         const tableBody = document.getElementById("reservasTableBody");
         tableBody.innerHTML = '';
@@ -239,7 +239,7 @@
     async function eliminarReserva(id) {
         const confirmDelete = confirm("¿Estás seguro de que deseas eliminar esta reserva?");
         if (confirmDelete) {
-            const response = await fetch(`https://back-app-reservas.onrender.com/eliminar-reserva/${id}`, { method: "DELETE" });
+            const response = await fetch(`https://back-app-reservas-5.onrender.com/eliminar-reserva/${id}`, { method: "DELETE" });
             const data = await response.json();
             alert(data.mensaje);
             cargarReservas();
@@ -248,7 +248,7 @@
 
 
     async function editarReserva(id) {
-        const response = await fetch(`https://back-app-reservas.onrender.com/reserva/${id}`);
+        const response = await fetch(`https://back-app-reservas-5.onrender.com/reserva/${id}`);
         const reserva = await response.json();
 
         // Rellenar el modal con los datos de la reserva
@@ -293,7 +293,7 @@
                 compromiso_pago: document.getElementById("editCommitment").checked
             };
 
-             const responseUpdate = await fetch(`https://back-app-reservas.onrender.com/actualizar-reserva/${id}`, {
+             const responseUpdate = await fetch(`https://back-app-reservas-5.onrender.com/actualizar-reserva/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedReserva)
@@ -312,7 +312,7 @@
     }
 
     async function cargarReservas() {
-        const response = await fetch("https://back-app-reservas.onrender.com/reservas");
+        const response = await fetch("https://back-app-reservas-5.onrender.com/reservas");
         const reservas = await response.json();
         const tableBody = document.getElementById("reservasTableBody");
         tableBody.innerHTML = '';
